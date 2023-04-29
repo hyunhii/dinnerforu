@@ -1,0 +1,42 @@
+.noticeHeader {
+    background-color: rgb(220,220,220);
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.noticeHeader h1 {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.noticeHeader span {
+    font-size: 18px;
+}
+
+.noticeBody .article-wrap {
+
+}
+
+
+.noticeBody article {
+    height: 85px;
+    border-bottom: 1px solid rgb(220,220,220);
+    display: flex;
+    align-items: center;
+}
+
+.noticeBody article h3 {
+    font-size: 16px;
+    margin: 0;
+}
+
+.noticeBody article h3 span{
+    color: #25A520;
+    font-weight: bold;
+}
+
+
+.noticeBody article div span {
+    font-size: 14px;
+    margin: 0;
+}

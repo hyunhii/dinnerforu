@@ -1,0 +1,153 @@
+@import url('https://hangeul.pstatic.net/hangeul_static/css/nanum-square.css');
+
+body {
+    font-family: NanumSquare, "Montserrat", Arial, sans-serif;
+    /*min-width: 1198px;*/
+}
+
+a {
+    text-decoration-line: none;
+}
+
+a:hover, a:active, a:focus {
+    outline: none;
+    text-decoration: none;
+}
+
+.top{
+    height: 15px;
+    background-color: #25A520;
+}
+
+.menu {
+    border-bottom: solid 1px rgba(55,53,47,0.1);
+    position: sticky;
+    z-index: 3;
+    top: 0;
+    background-color: white;
+
+}
+
+#logo{
+    font-weight: 700;
+    font-family: NanumSquareExtraBold, "Montserrat", Arial, sans-serif;
+    font-size: 20px;
+}
+
+.menu-item {
+    height: 40px;
+}
+
+.menu-item ul {
+    list-style: none;
+    float: left;
+    text-align: center;
+    width: 100%;
+}
+
+.menu-item ul li {
+    float: left;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    height: 40px;
+}
+
+.row {
+    height: 80px;
+}
+
+.menu a {
+    color: #000;
+    font-weight: bold;
+}
+
+.menu a:hover:not(.logout a, .user-info a) {
+    color : #25A520;
+}
+
+.outline {
+    border: 1px solid #25A520;
+    border-radius: 5px;
+    width: 90px;
+}
+
+.outline a {
+    color : #25A520;
+    font-weight: 800;
+    font-style: normal;
+    width: 90px;
+}
+
+.user-info a {
+    font-weight: bolder;
+}
+
+.logout {
+    background: rgb(239, 239, 239);
+    /*width: 46px;*/
+    height: 20px;
+    border-radius: 5px;
+    font-size: 13px;
+    line-height: 24px;
+    margin-left: 16px;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+
+
+/*footer*/
+
+footer {
+    background-color: #232324;
+    color : white;
+    height: 400px;
+    padding-left: 100px;
+    padding-top: 35px;
+}
+
+footer #footerLogo {
+    font-weight: 700;
+    font-family: NanumSquareExtraBold, "Montserrat", Arial, sans-serif;
+    font-size: 20px;
+    color: #25A520;
+}
+
+footer .footerMenu {
+    height: 40px;
+    margin-top: 15px;
+}
+
+footer .footerMenu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+footer .footerMenu ul li {
+    float: left;
+}
+
+footer .footerMenu ul:after {
+    display: block;
+    clear: both;
+}
+
+footer .footerMenu ul li a {
+    display: block;
+    width: auto;
+    padding-right: 10px;
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.companyInfo div{
+    /*display: table-cell;*/
+    font-size: 12px;
+    line-height: 26px;
+    vertical-align: middle;
+}

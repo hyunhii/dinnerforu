@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+</html>
+<script th:inline="javascript">
+    if([[${menuList2}]] != null) {
+        menuList2 = [[${menuList2}]];
+    } else {
+        nonShow = "on";
+    }
+</script>
+

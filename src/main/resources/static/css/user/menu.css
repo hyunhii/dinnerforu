@@ -1,0 +1,102 @@
+.info {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background: rgb(246, 250, 246);
+    font-size: 13px;
+    font-weight: bolder;
+    color: rgb(77, 77, 77);
+}
+
+.menu-bar-wrap {
+    position: sticky;
+    z-index: 3;
+    top: 80px;
+    background-color: white;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+.menu-bar {
+    display: flex;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    justify-content: center;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.menu-block {
+    min-width: fit-content;
+    width: fit-content;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgb(37, 165, 32);
+    border-radius: 23px;
+    margin-right: 20px;
+    flex-wrap: wrap;
+    cursor: pointer;
+    font-size: 17px;
+    line-height: 18px;
+    text-align: center;
+    color: rgb(37, 165, 32);
+    padding: 10px 12px;
+    letter-spacing: -0.03em;
+    /*margin-top: 5px;*/
+    margin-bottom: 5px;
+}
+
+.menu-block.on {
+    color: rgb(255, 255, 255);
+    background-color: rgb(37, 165, 32);
+}
+
+.menu-detail-wrap {
+    display: flex;
+    margin-bottom: 55px;
+    justify-content: center;
+}
+
+.detail-date {
+    width: 171px;
+    height: 45px;
+    display: inline-block;
+    background: rgb(246, 246, 246);
+    border-radius: 30px;
+    font-weight: 800;
+    font-size: 17px;
+    line-height: 45px;
+    text-align: center;
+    margin-right: 20%;
+}
+
+.detail-date.today {
+    background: rgb(227, 244, 59);
+}
+
+.menu-detail-wrap img {
+    object-fit: cover;
+    border-radius: 8px;
+    width: 220px;
+    height: 220px;
+    border: 1px solid rgb(242, 242, 242);
+}
+
+.detail-list {
+    margin-right: 40px;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.03em;
+    color: rgb(128, 128, 128);
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    word-break: break-all;
+    text-align: center;
+}
+
+.detail-list div {
+    margin-top: 10px;
+}
+
+.detail-list.pastDay {
+    color: rgb(215, 215, 215);
+}

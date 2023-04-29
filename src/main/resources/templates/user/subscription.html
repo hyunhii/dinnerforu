@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="user/fragments/header :: header"></head>
+<head>
+    <link rel="stylesheet" href="/css/user/subscription.css">
+    <script type="text/javascript" src="/js/common.js"></script>
+</head>
+<body>
+<div>
+    <div th:replace="user/fragments/bodyHeader :: bodyHeader"></div>
+    <div class="container">
+        <div class="title">나의 구독내역</div>
+        <div class="gray-line"></div>
+        <div th:each="item:${list}" class="gray-line item-wrap">
+            <div class="middle-title" th:text="${item.getSubscribeDate()}"></div>
+            <div class="address" th:text="${item.getAddress1()}"></div>
+            <div class="card-wrap">
+                <div class="content">
+                    <img th:src="'/images/food/' + ${item.getImgSrc1()}" alt="">
+                    <img th:src="'/images/food/' + ${item.getImgSrc2()}" alt="">
+                    <div class="content">
+                        <div>
+                            <div th:text="'수량 : ' + ${item.getCnt()} + '개'"></div>
+                            <div th:text="${item.getFoodName()}"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--<div class="gray-line item-wrap">
+            <div class="middle-title">2023-04-26 (수)</div>
+            <div class="address">서울시 강남구 강남대로 112</div>
+            <div class="card-wrap">
+                <img src="/images/food/bibimbab.png" alt="">
+                <img src="/images/food/kimchi.png" alt="">
+                <div class="content">
+                    <div>
+                        <div>수량 : 2개</div>
+                        <div>비빔밥 / 김치</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="gray-line item-wrap">
+            <div class="middle-title">2023-04-26 (수)</div>
+            <div class="address">서울시 강남구 강남대로 112</div>
+            <div class="card-wrap">
+                <img src="/images/food/bibimbab.png" alt="">
+                <img src="/images/food/kimchi.png" alt="">
+                <div class="content">
+                    <div>
+                        <div>수량 : 2개</div>
+                        <div>비빔밥 / 김치</div>
+                    </div>
+                </div>
+            </div>
+        </div>-->
+    </div>
+</div>
+</body>
+</html>

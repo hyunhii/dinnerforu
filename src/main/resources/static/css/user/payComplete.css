@@ -1,0 +1,44 @@
+.content-wrap {
+    width: 100%;
+    display: flex;
+    margin-bottom: 500px;
+}
+
+.content-item{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    /*max-width: 768px;*/
+    flex-direction: column;
+    padding: 20px;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.fa-circle-check {
+    color: rgb(37, 165, 32);
+    font-size: 3em;
+    padding-top: 130px;
+}
+
+.content1 {
+    margin-top: 20px;
+    margin-bottom: 30px;
+    font-weight: 800;
+    font-size: 24px;
+}
+
+.confirm {
+    color: rgb(255, 255, 255);
+    background-color: rgb(37, 165, 32);
+    height: 50px;
+    outline: none;
+    border: 1px solid rgb(220, 238, 222);
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    border-radius: 5px;
+    width: 350px;
+    font-weight: 700;
+    margin-top: 30px;
+}
