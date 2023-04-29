@@ -20,7 +20,7 @@ public class UserHomeController {
             model.addAttribute("name", user.getUsername());
         }
 
-        return "/user/index";
+        return "user/index";
     }
 
 }
