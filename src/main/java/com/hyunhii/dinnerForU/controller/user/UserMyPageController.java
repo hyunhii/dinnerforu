@@ -63,7 +63,7 @@ public class UserMyPageController {
 
         model.addAttribute("list", payList);
 
-        return "/user/payHistory";
+        return "user/payHistory";
     }
 
     @GetMapping("/mypage/cancel/{orderId}")
@@ -131,7 +131,7 @@ public class UserMyPageController {
         model.addAttribute("list", orderSummery);
 
 
-        return "/user/cancelHistory";
+        return "user/cancelHistory";
     }
 
     /*결제내역 디테일*/
@@ -168,7 +168,7 @@ public class UserMyPageController {
         model.addAttribute("name2", "구독");
         model.addAttribute("name3", "결제");
 
-        return "/user/detail";
+        return "user/detail";
     }
 
     /*취소내역 디테일*/
@@ -206,7 +206,7 @@ public class UserMyPageController {
         model.addAttribute("name3", "환불");
 
 
-        return "/user/detail";
+        return "user/detail";
     }
 
 
