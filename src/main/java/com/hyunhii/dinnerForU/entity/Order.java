@@ -24,15 +24,15 @@ import java.util.List;
                 "        , GROUP_CONCAT(FOOD_NAME) as food_name, GROUP_CONCAT(IMG_SRC) as img_src " +
                 "FROM(" +
                 "   SELECT ORDER_ID " +
-                "   FROM ORDERS " +
+                "   FROM orders " +
                 "   WHERE USER_USER_ID = ? " +
                 "   AND STATUS = 'ORDER' " +
                 ") a " +
-                "LEFT JOIN ORDER_ITEM b " +
+                "LEFT JOIN order_item b " +
                 "ON a.ORDER_ID  = b.ORDER_ID " +
-                "LEFT JOIN MENU c " +
+                "LEFT JOIN menu c " +
                 "ON b.MENU_ID  = c.MENU_ID " +
-                "LEFT JOIN MENU_ITEM d " +
+                "LEFT JOIN menu_item d " +
                 "ON b.MENU_ID  = d.MENU_ID " +
                 "LEFT JOIN (SELECT * FROM food ORDER BY (case when TYPE= 'MAIN' then 1 when TYPE='DESSERT' then 2 ELSE 4 end ) ) e " +
                 "ON d.FOOD_ID = e.FOOD_ID " +
