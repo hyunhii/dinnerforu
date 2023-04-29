@@ -81,7 +81,7 @@ public class LoginController {
     @GetMapping("/join/success")
     public String welcomePage() {
 
-        return "/user/welcome";
+        return "user/welcome";
     }
 
 }
