@@ -30,22 +30,6 @@ public class UserMenuController {
             model.addAttribute("name", user.getUsername());
         }
 
-        File file = new File("/app/build/resources/main/static/images/food/jjambbong.png");
-
-        if(file.exists()) {
-            System.out.println("file: ***************************************");
-        } else {
-            System.out.println("file: ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
-        }
-
-        File file2 = new File("/app/build/resources/main/static/images/food/cider.jpg");
-
-        if(file2.exists()) {
-            System.out.println("file2: ***************************************");
-        } else {
-            System.out.println("file2:^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
-        }
-
 
         LocalDate today = LocalDate.now();
 //        LocalDate today = LocalDate.of(2023, 3,4);
