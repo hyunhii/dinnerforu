@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 
+import java.io.File;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.temporal.TemporalAdjusters;
@@ -28,6 +29,23 @@ public class UserMenuController {
         if(user != null) {
             model.addAttribute("name", user.getUsername());
         }
+
+        File file = new File("/app/build/resources/main/static/images/food/jjambbong.png");
+
+        if(file.exists()) {
+            System.out.println("file: ***************************************");
+        } else {
+            System.out.println("file: ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
+        }
+
+        File file2 = new File("/app/build/resources/main/static/images/food/cider.jpg");
+
+        if(file2.exists()) {
+            System.out.println("file2: ***************************************");
+        } else {
+            System.out.println("file2:^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
+        }
+
 
         LocalDate today = LocalDate.now();
 //        LocalDate today = LocalDate.of(2023, 3,4);
