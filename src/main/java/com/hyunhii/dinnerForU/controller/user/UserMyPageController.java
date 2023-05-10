@@ -75,7 +75,7 @@ public class UserMyPageController {
 
 
         if(!orderService.checkUser(user.getId(), orderId)) {
-            return "redirect:/mypage/paymenthistory";
+            return "redirect:/mypage/history/order";
         }
 
         List<OrderItemDto> cancelInfo = orderService.getCancelInfo(orderId);
@@ -114,7 +114,7 @@ public class UserMyPageController {
             ra.addFlashAttribute("message", "success");
         }
 
-        return "redirect:/mypage/paymenthistory";
+        return "redirect:/mypage/history/order";
     }
 
 

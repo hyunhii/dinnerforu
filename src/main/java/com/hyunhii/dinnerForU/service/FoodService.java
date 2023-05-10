@@ -90,7 +90,6 @@ public class FoodService {
         String sourceFileName = file.getOriginalFilename();
 //        String sourceFileExtension = FilenameUtils.getExtension(sourceFileName).toLowerCase();
 
-//        String src = "C:/Users/HH/Desktop/portfolio/dinnerForU/src/main/resources/static/images/food/" + sourceFileName;
         String src = sourceFileName;
 
 
