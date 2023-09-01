@@ -1,0 +1,89 @@
+.none-content {
+    display: flex;
+    height: 300px;
+    text-align: center;
+    color: rgb(153, 153, 153);
+    justify-content: center;
+    align-items: center;
+}
+
+.address-card {
+    background-color: rgb(255, 255, 255);
+    border: 2px solid rgb(246, 250, 246);
+    border-radius: 5px;
+    padding : 30px;
+    color: rgb(77, 77, 77);
+    font-style: normal;
+    /*font-weight: 700;*/
+    font-size: 14px;
+    line-height: 26px;
+    margin-bottom: 20px;
+}
+
+.add-address-btn {
+    background: rgb(37, 165, 32);
+    border-radius: 5px;
+    padding: 16px;
+    width: 70%;
+    margin-top: 80px;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 16px;
+    line-height: 18px;
+    text-align: center;
+    letter-spacing: -0.04em;
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+    border : 0.1em solid rgb(220,220,220);
+    margin-bottom: 300px;
+}
+
+.card-title {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex-space-between{
+    display: flex;
+    justify-content: space-between;
+}
+
+.green-circle-btn {
+    border: 1px solid rgb(37, 165, 32);
+    box-sizing: border-box;
+    border-radius: 100px;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: -0.03em;
+    color: rgb(37, 165, 32);
+    padding: 3px 6px;
+    min-width: 70px;
+    text-align: center;
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.green-square-btn {
+    background: rgb(255, 255, 255);
+    border: 1px solid rgb(37, 165, 32);
+    box-sizing: border-box;
+    border-radius: 5px;
+    padding: 0px 13px;
+    width: 54px;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 24px;
+    letter-spacing: -0.03em;
+    color: rgb(37, 165, 32);
+    cursor: pointer;
+    margin-left: 5px;
+}

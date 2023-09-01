@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="user/fragments/header :: header"></head>
+<head>
+    <link rel="stylesheet" href="/css/user/index.css">
+</head>
+<body>
+<div>
+    <div th:replace="user/fragments/bodyHeader :: bodyHeader"></div>
+    <div class="banner">
+        <img src="/images/main/main-banner.jpg" alt="">
+    </div>
+    <section style="margin-top: 100px;">
+        <p>배달어플로 시켜먹으면 양도 많고 비싸고</p>
+        <p class="highlight">뭐먹지?</p>
+        <p>.</p>
+        <p>.</p>
+        <p>.</p>
+        <p style="margin-top: 50px">매일 저녁 새로운 메뉴 구성</p>
+        <p>든든하고 건강까지 챙기는 저녁 구독 서비스</p>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col col-md4 align-items-center">
+                    <p class="blank"></p>
+                    <p class="icon-wrap">
+                        <i class="icon fa-solid fa-won-sign fa-3x"></i>
+                    </p>
+                    <p class="title">
+                        8000원
+                    </p>
+                    <p>가성비 넘치는 가격</p>
+                </div>
+                <div class="col col-md4">
+                    <p class="blank"></p>
+                    <p class="icon-wrap">
+                         <i class="icon fa-solid fa-plate-wheat fa-3x"></i>
+                    </p>
+                    <p class="title">퀄리티 있는 구성</p>
+                    <p>건강을 고려한 메뉴와 후식까지</p>
+                </div>
+                <div class="col col-md4">
+                    <p class="blank"></p>
+                    <p class="icon-wrap">
+                        <i class="fa-solid fa-truck fa-3x"></i>
+                    </p>
+                    <p class="title">무료배송</p>
+                    <p>매일 오후 5시 이전 배송완료</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section style="margin-top: 90px; height: 270px">
+        <p class="title">
+            디너포유와 함께 저녁식사를 시작해볼까요?
+        </p>
+        <p style="margin-top: 40px">
+            <button onclick="location.href='/menu'">메뉴 보러가기</button>
+        </p>
+    </section>
+    <section style="height: 500px; background-color: rgb(82, 70, 71);">
+        <div class="background-wrap">
+            <div class="content">
+                <span>디너포유는 늘 고민합니다</span>
+                <span>고객님께 만족스러운 식사 경험을 드리기 위해서요.</span>
+                <span>더 알차고 맛있게, 어제보다 더 나은 큐레이션 저녁으로 보답드릴게요!</span>
+            </div>
+        </div>
+    </section>
+    <div th:replace="user/fragments/footer :: footer"></div>
+    <div  class="modal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div style="text-align: center; font-weight: bold">해당 서비스는 개인 포트폴리오 용도로 제작되었습니다.</div>
+                </div>
+                <div class="modal-bottom" style="text-align: center;">
+                    <div class="btn"><button type="button" class="confirm" >확인</button></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+<script>
+    $(".confirm").on('click', function () {
+        $(".modal").hide();
+    })
+
+    console.log(getCookie("init"));
+    if(getCookie('init') === null) {
+        $(".modal").show();
+        setCookie("init", true);
+    } else {
+        $(".modal").hide();
+    }
+
+
+    function setCookie(name, value, exp) {
+        var date = new Date();
+        date.setTime(date.getTime() + 30*60*1000);
+        document.cookie = name + '=' + value + ';expires=' + date.toUTCString() + ';path=/';
+    }
+
+    function getCookie(name) {
+        var value = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
+        return value? value[2] : null;
+    }
+
+</script>

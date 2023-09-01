@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<nav  class="menu" role="navigation" th:fragment="bodyHeader">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col col-md-3">
+                <a href="/" id="logo">Dinner For You.</a>
+            </div>
+            <div class="col col-md-5 menu-item">
+                <ul class="">
+                    <li class="col-md-4"><a href="/menu">메뉴표</a></li>
+                    <li class="col-md-4"><a href="/applyMenu" class="hello">구독신청</a></li>
+                    <li class="col-md-4"><a href="/notice">공지사항</a></li>
+                </ul>
+            </div>
+            <div class="col col-md-4 menu-item">
+                <ul th:if="${name == null}">
+                    <li class="col-md-4"><a href="/login">로그인</a></li>
+                    <li class="col-md-8 outline"><a href="/join">회원가입</a></li>
+                </ul>
+                <ul th:unless="${name == null}">
+                    <li class="user-info"><i class="fa-solid fa-utensils" style="color: #25a520; margin-right: 7px"></i><a href="/mypage" th:text="${name} + ' 님'"></a></li>
+                    <li class="logout"><a href="/logout">로그아웃</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>

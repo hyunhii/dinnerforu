@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <p>상품 수정</p>
+    <form th:object="${form}" method="post">
+        <div>
+            이름:
+            <input type="text" th:field="*{foodName}" placeholder="상품 이름을 입력하세요">
+            <br>
+            타입:
+            <select th:field="*{foodType}">
+                <option th:each="op : ${T(com.hyunhii.dinnerForU.entity.FoodType).values()}"
+                        th:value="${op}"
+                        th:text="${op.getName()}">
+                </option>
+            </select>
+            사용여부
+            <select th:field="*{useYN}">
+                <option value="Y">Y</option>
+                <option value="N">N</option>
+            </select>
+
+        </div>
+        <button type="submit">수정</button>
+    </form>
+</body>
+</html>

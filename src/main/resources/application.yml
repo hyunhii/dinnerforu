@@ -1,0 +1,32 @@
+spring:
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: ${MYSQL_FULL_URL}
+    username: ${MYSQL_USERNAME}
+    password: ${MYSQL_PASSWORD}
+
+  cloud:
+    gcp:
+      storage:
+        credentials:
+          location: classpath:${GOOGLE_APPLICATION_CREDENTIALS}
+        project-id: dinnerforu
+
+  jpa:
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        format_sql: true
+        default_batch_fetch_size: 100
+
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+      location: ""
+
+logging:
+  level:
+    org.hibernate.SQL: debug #sql문을 [logger]에 출력
+    org.hibernate.type: trace #sql문 파라미터 출력

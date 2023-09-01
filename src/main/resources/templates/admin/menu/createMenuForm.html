@@ -1,0 +1,102 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/css" src="/css/bootstrap/bootstrap.css"></script>
+    <script type="text/css" src="/css/bootstrap/bootstrap-grid.css"></script>
+    <script type="text/javascript" src="/js/bootstrap/bootstrap.js"></script>
+    <script type="text/javascript" src="/js/jquery-3.6.3.min.js"></script>
+
+    <script type="text/javascript" th:src="@{/js/admin/menu/createMenuForm.js}"></script>
+</head>
+<body>
+    <div>
+        <table class="Calendar">
+            <thead>
+            <tr>
+                <td onClick="moveMonth('prev');" style="cursor:pointer;">&#60;</td>
+                <td colspan="5">
+                    <span id="calYear"></span>년
+                    <span id="calMonth"></span>월
+                </td>
+                <td onClick="moveMonth('next');" style="cursor:pointer;">&#62;</td>
+            </tr>
+            <tr>
+                <td>일</td>
+                <td>월</td>
+                <td>화</td>
+                <td>수</td>
+                <td>목</td>
+                <td>금</td>
+                <td>토</td>
+            </tr>
+            </thead>
+
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+    <div id="menuOfDay"></div>
+    <hr>
+
+    <div class="container">
+        <table>
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>이름</th>
+            </tr>
+            </thead>
+            <tbody>
+            메인메뉴
+            <tr th:each="mainFood:${mainFoods}" th:onclick="'javascript:selectMenu(\'m\', '+${mainFood.foodId}+', this);'">
+                <td th:text="${mainFood.foodId}"></td>
+                <td th:text="${mainFood.foodName}"></td>
+            </tr>
+            </tbody>
+        </table>
+
+        <table>
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>이름</th>
+            </tr>
+            </thead>
+            <tbody>
+            디저트
+            <tr th:each="dessert:${desserts}" th:onclick="'javascript:selectMenu(\'d\', '+${dessert.foodId}+', this);'">
+                <td th:text="${dessert.foodId}"></td>
+                <td th:text="${dessert.foodName}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <hr>
+    <form th:action="@{/admin/menu}" th:object="${menuForm}" method="post">
+        <span id="choiceDate"></span>
+        <div class="choiceFoodList">
+        </div>
+        가격: <input type="text" th:field="*{price}"> / 갯수: <input type="number" th:field="*{cnt}">
+        <br>
+        <input type="hidden" id="choiceYear" th:field="*{year}">
+        <input type="hidden" id="choiceMonth" th:field="*{month}">
+        <input type="hidden" id="choiceDay" th:field="*{day}">
+        <input type="hidden" id="choiceMainFood" th:field="*{foodIdList}">
+        <input type="hidden" id="choiceDessert" th:field="*{foodIdList}">
+        <button type="submit">등록</button>
+    </form>
+
+
+
+</body>
+</html>
+<script th:inline="javascript">
+    $("#price").val([[${defaultPrice}]]);
+    $("#cnt").val([[${defaultCnt}]]);
+
+    let menuList = [[${menuList}]];
+</script>
+

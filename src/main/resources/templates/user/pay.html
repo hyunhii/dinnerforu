@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="user/fragments/header :: header"></head>
+<head>
+    <link rel="stylesheet" href="/css/user/pay.css">
+    <script type="text/javascript" src="/js/common.js"></script>
+    <script type="text/javascript" src="/js/user/pay.js"></script>
+    <script th:inline="javascript">
+        if([[${addressForm.addressName}]] == null) {
+            alert("배송지 관리에서 배송지 추가 후 이용해주세요.");
+            window.location ="/mypage/address";
+        } else {
+            console.log("?")
+        }
+    
+        let applylist = JSON.parse([[${applyList}]]);
+    </script>
+</head>
+<body>
+<div th:replace="user/fragments/bodyHeader :: bodyHeader"></div>
+<div class="container">
+    <div class="content-wrap">
+        <div class="content-item">
+            <div class="title">결제하기</div>
+            <div class="content-item-block">
+                <div class="subject">배송정보</div>
+                <div class="line"></div>
+<!--                <div class="delivery-change">배송지 변경</div>-->
+                <div th:if="${addressForm != null}" class="delivery-card" th:object="${addressForm}">
+                    <div class="address address1" th:text="*{addressName +' | '+ receiver} "></div>
+                    <div class="address address2" th:text="*{address1}"></div>
+                    <div class="address address3" th:text="*{address2}"></div>
+                    <div class="address" th:text="*{message}"></div>
+                    <div class="phone" th:text="*{phone}"></div>
+                </div>
+                <div th:unless="${addressForm != null}" class="delivery-card">
+                    <div class="address address1">배송지 관리에서 배송지 추가 후 이용해주세요.</div>
+                </div>
+            </div>
+            <div class="content-item-block">
+                <div class="subject">구독 정보</div>
+                <div class="line"></div>
+                <div class="subject-block apply-amount">
+                    <div>구독 수량</div>
+                    <div>3개</div>
+                </div>
+                <div class="subject-block apply-period">
+                    <div>구독 기간</div>
+                    <div>2023-03-31 ~ 2023-04-03 (총 2일)</div>
+                </div>
+                <div class="apply-schedule">
+                    <div class="apply-schedule-subject">구독 일정</div>
+                </div>
+            </div>
+            <div class="content-item-block">
+                <div class="subject">결제수단</div>
+                <div class="line"></div>
+                <div class="payment-method">
+                    <div>
+                        <label for="card">
+                            <input type="radio" id="card" name="payment-method" value="card" checked>
+                            <span style="padding-left: 5px">신용카드</span>
+                        </label>
+                    </div>
+                    <div>
+                        <label for="account">
+                            <input type="radio" id="account" name="payment-method" value="account">
+                            <span style="padding-left: 5px">가상계좌</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content-item">
+            <div class="content-item-wrap">
+                <div class="pay-card">
+                    <div class="pay-info-wrap">
+                        <div class="subject">결제정보</div>
+                        <div class="pay-price-wrap">
+                            <div>주문금액</div>
+                            <div>6,900원</div>
+                        </div>
+                        <div class="line2"></div>
+                        <div class="discount-wrap">
+                            <div>사용</div>
+                            <div style="width: 50%">
+                                <div>쿠폰</div>
+                                <div class="discount-price">-0원</div>
+                            </div>
+                        </div>
+                        <div class="line2"></div>
+                        <div class="pay-amount-wrap">
+                            <div>총 결제금액</div>
+                            <div>
+                                <div id="pay-amount">
+                                    6,900
+                                    <span>원</span>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="line3"></div>
+                    <div class="confirm-wrap">
+                        <div>
+                            <i class="fa-regular fa-circle-check"></i>
+                        </div>
+                        <div>주문내용 확인 및 결제 동의</div>
+                    </div>
+                </div>
+                <form action="/order" method="post" onsubmit="attachData()">
+                    <input type="hidden" id="applyList" name="applyList">
+                    <input type="hidden" id="payMethod" name="payMethod">
+                    <button class="doPay" type="submit">신용카드로 결제하기</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:replace="user/fragments/footer :: footer"></div>
+</body>
+</html>

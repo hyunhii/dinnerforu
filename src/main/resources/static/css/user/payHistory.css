@@ -1,0 +1,146 @@
+.none-content {
+    padding-top: 300px;
+    padding-bottom: 300px;
+    text-align: center;
+    background-color: rgb(246, 250, 246);
+    border-radius: 5px;
+}
+
+
+.gray-line {
+    margin-top: 20px;
+    margin-bottom: 15px;
+    font-size: 16px;
+    background-color: rgb(245, 245, 245);
+    padding-left: 10px;
+    padding-right: 10px;
+    font-weight: bolder;
+    height: 50px;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 5px;
+}
+
+.content-item {
+    /*padding-left: 20px;
+    padding-right: 20px;*/
+}
+
+.pay-date-wrap {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.pay-date {
+    font-size: 16px;
+    background-color: rgb(245, 245, 245);
+}
+
+.subscription-menu-detail-wrap {
+    padding: 20px;
+}
+
+
+.subscription-date {
+    font-weight: bolder;
+}
+
+
+.subscription-menu-detail {
+    display: flex;
+    flex-direction: column;
+    /*max-width: 1200px;*/
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid rgb(242, 242, 242);
+    padding: 16px;
+    box-shadow: rgba(164, 164, 164, 0.1) 0px 4px 5px 0px;
+    margin-bottom: 7px;
+    cursor: pointer;
+}
+
+.subscription-menu-detail img {
+    object-fit: cover;
+    border-radius: 8px;
+    width: 100px;
+    height: 100px;
+    border: 1px solid rgb(242, 242, 242);
+}
+
+.cancel-btn{
+    height: 24px;
+    /*padding: 1px 8px;*/
+    background: rgb(255, 255, 255);
+    border: 1px solid red;
+    border-radius: 24px;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 22px;
+    color: rgb(77, 77, 77);
+    flex: 0 0 auto;
+    order: 0;
+    /*margin: 0px 10px;*/
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    width: 70px;
+    justify-content: center;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-right: 4px;
+    background-color: red;
+}
+
+.flex-space-between {
+    display: flex;
+    justify-content: space-between;
+}
+
+.modal-bottom {
+    display: flex;
+    justify-content: center;
+    vertical-align: baseline;
+    height: 40px;
+}
+
+.modal-bottom div:nth-child(1) {
+    border-right: 1px solid #dee2e6;
+}
+.modal-bottom {
+    border-top: 1px solid #dee2e6;
+}
+
+.modal-bottom div {
+    width: 100%;
+    justify-content: center;
+    display: flex;
+    vertical-align: middle;
+}
+
+
+.modal-body div, .modal-bottom div {
+    text-align: center;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 26px;
+    letter-spacing: -0.03em;
+}
+
+.confirm {
+    outline: none;
+    border: none;
+    background-color: white;
+    width: 250px;
+}
+
+.modal {
+    background-color: rgba(0,0,0,0.5);
+}

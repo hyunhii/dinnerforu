@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="user/fragments/header :: header"></head>
+<head>
+    <link rel="stylesheet" href="/css/user/common_mypage.css">
+    <link rel="stylesheet" href="/css/user/address_modify.css">
+        <script type="text/javascript" src="/js/user/addAddress.js"></script>
+    <script type="text/javascript" src="/js/common.js"></script>
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+</head>
+<body>
+<div>
+    <div th:replace="user/fragments/bodyHeader :: bodyHeader"></div>
+    <div class="container">
+        <div class="add-address-wrap">
+            <div class="title-wrap flex-space-between">
+                <div class="arrow move-arrow" onclick="location.href='/mypage/address'"><</div>
+                <div th:if="!${addressId}" class="title">배송지 추가</div>
+                <div th:unless="!${addressId}" class="title">배송지 수정</div>
+                <div class="arrow"></div>
+            </div>
+            <div class="gray-line"></div>
+            <form th:action="@{/mypage/address/edit/{id}(id=${addressId})}" th:object="${form}" method="post">
+                <div class="input-wrap">
+                    <div class="input-title">
+                        배송지명<span class="star">*</span>
+                    </div>
+                    <input type="text" th:field="*{addressName}" placeholder="배송지명을 입력해주세요. 예시: 집, 회사">
+                </div>
+                <div class="input-wrap">
+                    <div class="input-title">
+                        수령인<span class="star">*</span>
+                    </div>
+                    <input type="text" th:field="*{receiver}" placeholder="받는 분의 이름을 입력해주세요.">
+                </div>
+                <div class="input-wrap">
+                    <div  class="input-title">
+                        휴대전화<span class="star">*</span>
+                    </div>
+                    <input type="tel" th:field="*{phone}" placeholder="받는 분의 전화번호를 입력해주세요." maxlength="13">
+                </div>
+                <div class="input-wrap">
+                    <div class="input-title">
+                        주소<span class="star">*</span>
+                    </div>
+                    <div class="address-warp">
+                        <input class="address" th:field="*{address1}" type="text" placeholder="도로명주소를 입력해 주세요." readonly>
+                        <button id="searchAddress" type="button">검색</button>
+                    </div>
+                    <div>
+                        <input th:field="*{address2}" type="text" placeholder="상세 주소를 입력해주세요.(예: 회사명/동/호)">
+                    </div>
+                </div>
+                <div class="input-wrap">
+                    <div class="input-title">
+                        배송메시지<span class="star"></span>
+                    </div>
+                    <input type="text" th:field="*{message}" placeholder="배송 메시지를 적어주세요.">
+                </div>
+                <div class="input-wrap">
+                    <div class="checkbox-wrap">
+                        <div style="margin-right: 7px">
+                            <i th:if="*{mainYN == 'Y'}" class="fa-regular fa-solid fa-circle-check"></i>
+                            <i th:unless="*{mainYN == 'Y'}" class="fa-regular fa-circle-check"></i>
+                        </div>
+                        <div>기본 배송지로 저장하기</div>
+                        <input type="hidden" th:field="*{mainYN}">
+                    </div>
+                </div>
+                <div class="btn-warp">
+                    <button  th:if="!*{addressId}" type="submit" class="add-address">배송지 추가</button>
+                    <button th:unless="!*{addressId}" type="submit" class="add-address">배송지 수정</button>
+                </div>
+            </form>
+        </div>
+        <div class="search-post-wrap" style="display: none">
+            <div class="title-wrap flex-space-between">
+                <div class="arrow"></div>
+                <div class="title">배송지 검색</div>
+                <div class="arrow move-arrow"><i class="fa-solid fa-x"></i></div>
+            </div>
+            <div class="gray-line"></div>
+            <div style="display: flex; justify-content: center; height: 1000px">
+                <div class="daum-api-warp">
+                    <div id="wrap" style="display:none;width:700px;height:1000px;margin:5px 0;position:relative">
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+
+</div>
+</body>
+</html>

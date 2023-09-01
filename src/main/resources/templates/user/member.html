@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="user/fragments/header :: header"></head>
+<head>
+    <link rel="stylesheet" href="/css/user/common_mypage.css">
+    <link rel="stylesheet" href="/css/user/member.css">
+    <script type="text/javascript" src="/js/user/member.js"></script>
+    <script type="text/javascript" src="/js/common.js"></script>
+</head>
+<body>
+<div>
+    <div th:replace="user/fragments/bodyHeader :: bodyHeader"></div>
+    <div class="container modal-box">
+        <div class="title-wrap flex-space-between">
+            <div class="arrow move-arrow move-arrow-margin" onclick="location.href='/mypage'"><</div>
+            <div class="title">내 정보 관리</div>
+            <div class="arrow"></div>
+        </div>
+        <form action="/mypage/member/modify" th:object="${form}" onsubmit="return validationCheck()" method="post">
+            <div class="input-wrap">
+                <div class="input-title">
+                    아이디<span class="star">*</span>
+                </div>
+                <input type="text" th:field="*{userId}" disabled>
+            </div>
+            <div class="input-wrap">
+                <div class="input-title">
+                    비밀번호<span class="star">*</span>
+                </div>
+                <div class="input-with-btn-wrap">
+                    <input type="text" value="********" disabled>
+                    <button type="button" class="open-btn" onclick="openBox()">변경</button>
+                </div>
+            </div>
+            <div class="show-and-hide">
+                <div class="input-wrap">
+                    <div class="input-title">
+                        현재 비밀번호<span class="star">*</span>
+                        <span class="check-fail check-fail-pw">영문,숫자 혼합하여 8자리~16자리 이내로 입력해주세요.</span>
+                    </div>
+                    <input type="password" id="pw" placeholder="영문,숫자 혼합하여 8자리~16자리 이내로 입력해주세요.">
+                </div>
+                <div class="input-wrap">
+                    <div class="input-title">
+                        신규 비밀번호<span class="star">*</span>
+                        <span class="check-fail check-fail-new-pw">영문,숫자 혼합하여 8자리~16자리 이내로 입력해주세요.</span>
+                    </div>
+                    <input type="password"  id="new-pw" placeholder="영문,숫자 혼합하여 8자리~16자리 이내로 입력해주세요.">
+                </div>
+                <div class="input-wrap">
+                    <div class="input-title">
+                        신규 비밀번호 확인<span class="star">*</span>
+                        <span class="check-fail check-fail-pwCheck">비밀번호가 일치하지 않습니다.</span>
+                    </div>
+                    <input type="password" id="new-pw-check" placeholder="비밀번호를 입력해주세요.">
+                </div>
+                <div class="input-wrap">
+                    <div class="btn-wrap">
+                        <button type="button" class="cancel" onclick="closeBox()">취소</button>
+                        <button type="button" class="confirm confirm-change-pw" onclick="return changePW()">변경</button>
+                    </div>
+                </div>
+            </div>
+            <div class="input-wrap">
+                <div class="input-title">
+                    이름<span class="star">*</span>
+                </div>
+                <input type="text" th:field="*{name}" placeholder="이름을 입력해주세요.">
+            </div>
+            <div class="input-wrap">
+                <div class="input-title">
+                    휴대전화<span class="star">*</span>
+                </div>
+                <input type="tel" th:field="*{phone}" placeholder="전화번호를 입력해주세요.">
+            </div>
+            <div class="input-wrap">
+                <div class="input-title">
+                    이메일<span class="star">*</span>
+                </div>
+                <input type="email" th:field="*{email}" placeholder="이메일을 입력해주세요.">
+            </div>
+            <div class="green-line"></div>
+            <div class="submit-btn-wrap">
+                <button class="submit-btn" type="submit">정보 수정</button>
+            </div>
+        </form>
+        <div class="withdrawal" onclick="openModal()">
+            회원탈퇴
+        </div>
+    </div>
+    <div class="modal" tabindex="-1">
+        <div class="modal-dialog modal-sm modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div>회원탈퇴를 하시겠습니까?</div>
+                </div>
+                <form action="/mypage/member/withdrawal" method="post">
+                    <div class="modal-bottom">
+                        <div type="button" class="btn" onclick="closeModal()">취소</div>
+                        <div class="btn"><button type="submit" class="withdrawal-btn">탈퇴하기</button></div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

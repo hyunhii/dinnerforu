@@ -1,0 +1,176 @@
+.title {
+    font-weight: bold;
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    font-size: 18px;
+}
+
+.gray-line {
+    border: 1px solid rgb(237, 237, 237);
+}
+
+.check-success, .check-fail {
+    font-size: 11px;
+    font-weight: bold;
+    margin-left: 2px;
+    margin-top: 2px;
+    display: none;
+}
+
+.check-success {
+    color: rgb(37, 165, 32);
+}
+
+.check-fail {
+    color: rgb(255, 126, 54);
+}
+
+
+.input-wrap {
+    margin-top: 24px;
+    /*height: 92px;*/
+}
+
+.input-title {
+    font-size: 13px;
+    margin-bottom: 6px;
+    font-weight: bold;
+}
+.star {
+    color: rgb(255, 126, 54);
+    margin-left: 2px;
+}
+
+input {
+    width: 100%;
+    appearance: none;
+    padding: 11px 15px;
+    border: 1px solid rgb(219, 219, 219);
+    display: flex;
+    align-items: center;
+    color: rgb(77, 77, 77);
+    border-radius: 5px;
+    font-weight: 700;
+    line-height: 24px;
+    font-size: 14px;
+    text-overflow: ellipsis;
+}
+
+input:focus {
+    border-color: rgb(37, 165, 32);
+    outline: none;
+}
+
+input::placeholder {
+    font-weight: normal;
+}
+
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px #fff inset ;
+    -webkit-text-fill-color: rgb(77, 77, 77);
+}
+input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:focus, input:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+.input-with-btn-wrap {
+    display: flex;
+}
+.input-with-btn-wrap button {
+    width: 85px;
+    margin-left: 7px;
+    background-color: rgb(37, 165, 32);
+    pointer-events: inherit;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    max-width: 90px;
+    outline: none;
+    color: rgb(255, 255, 255);
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
+.green-line {
+    height: 24px;
+    width: 100%;
+    background-color: rgb(246, 250, 246);
+    margin-top: 30px;
+}
+
+.join-info-wrap {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.join-info-wrap .title {
+    font-size: 13px;
+    font-weight: 700;
+    color: rgb(26, 26, 26);
+    text-align: left;
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+
+.checkbox-wrap {
+    display: flex;
+    cursor: pointer;
+    margin-bottom: 0;
+    font-weight: bolder;
+    color: rgb(77, 77, 77);
+    vertical-align: center;
+    margin-top: 4px;
+}
+
+.checkbox-wrap i {
+    margin-right: 7px;
+}
+
+.fa-circle-check {
+    color: rgb(220, 220, 220);
+}
+
+.fa-solid.fa-circle-check {
+    color: rgb(37, 165, 32);
+}
+
+.checkbox-wrap .content {
+    font-size: 14px;
+}
+
+.checkbox-wrap .underline {
+    color: rgb(77, 77, 77);
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 24px;
+    text-align: left;
+    text-decoration: underline;
+    margin-left: 8px;
+    cursor: pointer;
+}
+
+.btn-warp {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.btn-warp button {
+    height: 50px;
+    width: 100%;
+    border: none;
+    background-color: rgb(37, 165, 32);
+    cursor: pointer;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    border-radius: 5px;
+    font-weight: 700;
+    color: rgb(255, 255, 255);
+}

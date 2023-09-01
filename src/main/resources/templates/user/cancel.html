@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="user/fragments/header :: header"></head>
+<head>
+    <link rel="stylesheet" href="/css/user/cancel.css">
+    <script type="text/javascript" src="/js/common.js"></script>
+</head>
+<body>
+<div>
+    <div th:replace="user/fragments/bodyHeader :: bodyHeader"></div>
+    <div class="container">
+        <div class="title">취소</div>
+        <div class="green-line"></div>
+        <div class="content-wrap">
+            <div class="mid-title">취소정보</div>
+            <div class="cancel-info-wrap">
+                <span class="small-title">구독일</span>
+                <span class="small-title" th:text="${#lists.size(list)} + '일'"></span>
+            </div>
+            <div class="cancel-info-wrap">
+                <span class="small-title">취소수량</span>
+                <span class="small-title" th:text="${amountCnt} + '개'"></span>
+            </div>
+            <div th:each="item:${list}" class="cancel-info-wrap">
+                <span th:text="${item.subscribeDate}"></span>
+                <span th:text="${item.cnt}+'개'"></span>
+            </div>
+        </div>
+        <div class="green-line"></div>
+        <div class="content-wrap">
+            <div class="mid-title">환불정보</div>
+            <div class="refund-info-wrap">
+                <span class="small-title">취소상품금액</span>
+                <span th:text="${amountPrice} +'원'"></span>
+            </div>
+            <div class="line"></div>
+            <div class="refund-info-wrap">
+                <span class="small-title refund-method">환불수단</span>
+                <div class="refund-method-detail">
+                    <div>
+                        <span th:text="${method}"></span>
+                        <span th:text="${amountPrice}+'원'"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="line"></div>
+            <div class="refund-info-wrap">
+                <div class="small-title cancel-amount">총 환불 예정금액</div>
+                <div class="cancel-amount"th:text="${amountPrice}+'원'"></div>
+            </div>
+            <div class="cancel-warn">
+                <div>- 쿠폰 사용 여부에 따라 상품가격과 환불금액의 차이가 발생할 수 있습니다.</div>
+                <div>- 환불은 요청일로부터 은행/카드사 정책에 따라 최대 7일까지 소요됩니다.</div>
+                <div>- 일부 취소 시, 쿠폰 할인액을 제외한 실결제금액을 일할 계산하여 환불금액을 계산합니다.</div>
+                <div>- 결제 시 사용한 쿠폰은 반환되지 않습니다. 다만 구독시작 이전 전체 취소이고 쿠폰 유효기간이 남아있는 경우, 동일한 쿠폰을 다시 사용할 수 있습니다.</div>
+            </div>
+
+        </div>
+        <div class="content-wrap">
+            <button class="cancel-btn" onclick="openModal()">환불 요청</button>
+        </div>
+    </div>
+    <div class="modal" tabindex="-1">
+        <div class="modal-dialog modal-sm modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div>환불 요청하시겠습니까?</div>
+                </div>
+                <form th:action="@{/mypage/cancel}" method="post">
+                    <div class="modal-bottom">
+                        <div type="button" class="btn" onclick="closeModal()">취소</div>
+                        <input type="hidden" name="orderId" th:value="${orderId}">
+                        <div class="btn"><button type="submit" class="cancel-btn-confirm">환불하기</button></div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+<script>
+    function openModal() {
+        $(".modal").show()
+    }
+
+    function closeModal(){
+        $(".modal").hide()
+    }
+</script>

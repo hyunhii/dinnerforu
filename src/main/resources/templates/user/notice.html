@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="user/fragments/header :: header"></head>
+<head>
+    <link rel="stylesheet" href="/css/user/notice.css">
+    <script type="text/javascript" src="/js/user/notice.js"></script>
+</head>
+<body>
+<div>
+    <div th:replace="user/fragments/bodyHeader :: bodyHeader"></div>
+    <main>
+        <section class="noticeHeader">
+            <div class="container">
+                <div>
+                    <h1>디너포유의 공지사항</h1>
+                    <span>새로운 소식, 이벤트들을 들어주세요.</span>
+                </div>
+            </div>
+        </section>
+        <section class="noticeBody">
+            <div class="container">
+                <div class="article-wrap">
+                    <div th:each="notice:${notices}">
+                        <article class="title">
+                            <a>
+                                <h3><span class="bulletPoint">- </span><span th:text="${notice.title}"></span></h3>
+                                <div><span th:text=" ${#strings.substring(notice.createdDate, 0, 10)}"></span></div>
+                            </a>
+                        </article>
+                        <article class="content">
+                            <div th:utext="${#strings.replace(notice.brContent, '<br/>','&lt;br /&gt;')}"></div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="page" th:with="start=${(notices.number/maxPage) * maxPage + 1},
+                  end=(${(notices.totalPages == 0) ? 1 : (start + (maxPage - 1) < notices.totalPages ? start + (maxPage - 1) : notices.totalPages)})">
+            <ul style="list-style: none;">
+                <li th:if="${start > 1}" style="display: inline-block; padding-left: 20px">
+                    <a th:href="@{/notice(page=${start - maxPage})}" th:text="'<'"></a>
+                </li>
+                <li th:unless="${start > 1}" style="display: inline-block; padding-left: 20px">
+                    <a th:text="'<'"></a>
+                </li>
+                <li th:each="page: ${#numbers.sequence(start, end)}" style="display: inline-block; padding-left: 20px">
+                    <a class="on" th:if="${nowPage == page}" th:href="@{/notice(page = ${page})}" th:text="${page}"></a>
+                    <a th:unless="${nowPage == page}" th:href="@{/notice(page = ${page})}" th:text="${page}"></a>
+<!--                    <a th:href="@{/notice(page = ${page})}" th:text="${page}"></a></li>-->
+                </li>
+                <li th:if="${end < notices.totalPages}" style="display: inline-block; padding-left: 20px">
+                    <a th:href="@{/notice(page=${start + maxPage})}" th:text="'>'"></a>
+                </li>
+                <li th:unless="${end < notices.totalPages}" style="display: inline-block; padding-left: 20px">
+                    <a th:text="'>'"></a>
+                </li>
+            </ul>
+        </div>
+    </main>
+    </div>
+<!--    <div th:replace="user/fragments/footer :: footer"></div>-->
+</div>
+</body>
+</html>

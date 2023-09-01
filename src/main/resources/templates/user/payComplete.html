@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="user/fragments/header :: header"></head>
+<head>
+    <link rel="stylesheet" href="/css/user/payComplete.css">
+    <script type="text/javascript" src="/js/common.js"></script>
+<!--    <script type="text/javascript" src="/js/user/payComplete.js"></script>-->
+</head>
+<body>
+<div th:replace="user/fragments/bodyHeader :: bodyHeader"></div>
+<div class="container">
+    <div class="content-wrap">
+        <div class="content-item">
+            <i class="fa-solid fa-circle-check fa-3x"></i>
+            <div class="content1">구독 신청 완료</div>
+            <div>구독해주셔서 감사합니다.</div>
+            <button class="confirm" onclick="location.href='/mypage/mysubscription'">나의 구독 내역 확인</button>
+        </div>
+    </div>
+</div>
+<div th:replace="user/fragments/footer :: footer"></div>
+</body>
+</html>

@@ -1,0 +1,197 @@
+.check-fail {
+    font-size: 11px;
+    font-weight: bold;
+    margin-left: 2px;
+    margin-top: 2px;
+    display: none;
+}
+
+.check-fail {
+    color: rgb(255, 126, 54);
+}
+
+.input-wrap {
+    margin-top: 24px;
+    /*height: 92px;*/
+}
+
+.input-title {
+    font-size: 13px;
+    margin-bottom: 6px;
+    font-weight: bold;
+}
+.star {
+    color: rgb(255, 126, 54);
+    margin-left: 2px;
+}
+
+input {
+    width: 100%;
+    appearance: none;
+    padding: 11px 15px;
+    border: 1px solid rgb(219, 219, 219);
+    display: flex;
+    align-items: center;
+    color: rgb(77, 77, 77);
+    border-radius: 5px;
+    font-weight: 700;
+    line-height: 24px;
+    font-size: 14px;
+    text-overflow: ellipsis;
+}
+
+input:focus {
+    border-color: rgb(37, 165, 32);
+    outline: none;
+}
+
+input::placeholder {
+    font-weight: normal;
+}
+
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px #fff inset ;
+    -webkit-text-fill-color: rgb(77, 77, 77);
+}
+input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:focus, input:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+.input-with-btn-wrap {
+    display: flex;
+}
+.input-with-btn-wrap button {
+    width: 85px;
+    margin-left: 7px;
+    background-color: rgb(37, 165, 32);
+    pointer-events: inherit;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    max-width: 90px;
+    outline: none;
+    color: rgb(255, 255, 255);
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
+.btn-wrap {
+    display: flex;
+    justify-content: center;
+}
+
+.btn-wrap button {
+    width: 85px;
+    pointer-events: inherit;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    max-width: 90px;
+    outline: none;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 13px;
+    letter-spacing: 1px;
+    margin-left: 3px;
+    margin-right: 3px;
+}
+
+
+.confirm {
+    background-color: rgb(37, 165, 32);
+    color: rgb(255, 255, 255);
+}
+
+.show-and-hide {
+    padding: 20px;
+    display: none;
+}
+
+.submit-btn-wrap {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+.submit-btn {
+    height: 50px;
+    width: 100%;
+    border: none;
+    background-color: rgb(37, 165, 32);
+    cursor: pointer;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    border-radius: 5px;
+    font-weight: 700;
+    color: rgb(255, 255, 255);
+}
+
+.withdrawal {
+    margin-top: 200px;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 26px;
+    letter-spacing: -0.04em;
+    color: rgb(77, 77, 77);
+    cursor: pointer;
+    width: 50px;
+}
+
+.btn-close{
+    text-align: right;
+}
+
+.modal-content {
+    /*border: none;*/
+}
+
+.modal-bottom {
+    display: flex;
+    justify-content: center;
+    vertical-align: baseline;
+    height: 40px;
+}
+
+.modal-bottom div:nth-child(1) {
+    border-right: 1px solid #dee2e6;
+}
+.modal-bottom {
+    border-top: 1px solid #dee2e6;
+}
+
+.modal-bottom div {
+    width: 100%;
+    justify-content: center;
+    display: flex;
+    vertical-align: middle;
+}
+
+
+.modal-body div, .modal-bottom div {
+    text-align: center;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 26px;
+    letter-spacing: -0.03em;
+}
+
+.withdrawal-btn {
+    outline: none;
+    border: none;
+    background-color: white;
+}
+
+.modal {
+    background-color: rgba(0,0,0,0.5);
+}

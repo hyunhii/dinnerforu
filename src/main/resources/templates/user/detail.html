@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="user/fragments/header :: header"></head>
+<head>
+    <link rel="stylesheet" href="/css/user/common_mypage.css">
+    <link rel="stylesheet" href="/css/user/detail.css">
+    <script type="text/javascript" src="/js/common.js"></script>
+</head>
+<body>
+<div>
+    <div th:replace="user/fragments/bodyHeader :: bodyHeader"></div>
+    <div class="container">
+        <div class="title-wrap flex-space-between">
+            <div th:if    ="${#strings.equals(name1, '결제')}" class="arrow move-arrow move-arrow-margin" onclick="location.href='/mypage/history/order'">&lt;</div>
+            <div th:unless="${#strings.equals(name1, '결제')}" class="arrow move-arrow move-arrow-margin" onclick="location.href='/mypage/history/cancel'">&lt;</div>
+            <div class="title" th:text="${name1} +' 내역'"></div>
+            <div class="arrow"></div>
+        </div>
+        <div class="container">
+            <div class="padding">
+                <div class="green-box" th:text="'주문일 ' + ${list[0].orderDate} + ' ('+${list[0].dayOfWeek} +')'"></div>
+                <div class="padding">
+                    <div class="middle-title" th:text="${name2} + ' 정보'"></div>
+                    <div class="border-line" th:each="item:${list}">
+                        <div class="flex-space-between">
+                            <div class="small-title">구독일</div>
+                            <div class="small-content" th:text="${item.subscribeDate}+ ' (' + ${item.sdDayOfWeek} +')'"></div>
+                        </div>
+                        <div class="flex-space-between">
+                            <div class="small-title">구독수량</div>
+                            <div  class="small-content" th:text="${item.cnt}+'개'">1개</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="green-line"></div>
+                <div class="padding">
+                    <div class="middle-title" th:text="${name3} + ' 정보'"></div>
+                    <div class="border-line">
+                        <div class="flex-space-between">
+                            <div class="small-title" th:text="${name3} + '상품금액'"></div>
+                            <div class="small-content" th:text="${amountPrice} +'원'"></div>
+                        </div>
+                        <div class="flex-space-between border-line">
+                            <div class="small-title">쿠폰</div>
+                            <div class="small-content">0원</div>
+                        </div>
+                        <div class="flex-space-between">
+                            <div class="small-title bold-font"  th:text="'총 ' + ${name3} + '금액'"></div>
+                            <div class="small-content bold-font large-size-font" th:text="${amountPrice} +'원'"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="green-line"></div>
+                <div class="padding">
+                    <div class="middle-title"  th:text="${name3} + ' 방법'"></div>
+                    <div class="flex-space-between">
+                        <div class="small-title" th:text="${method}">신용카드</div>
+                        <div class="small-content" th:text="${amountPrice} +'원'">13,800원</div>
+                    </div>
+                </div>
+            </div>
+            <div class="padding">
+                <div class="green-box small-font">
+                    은행과 카드사 정책에 따라 환불 완료까지 평일 기준 최대 7일 소요됩니다. 정확한 환불 완료일은 은행 및 카드사에 문의해주세요.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

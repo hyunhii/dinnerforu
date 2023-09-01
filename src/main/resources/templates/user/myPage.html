@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="user/fragments/header :: header"></head>
+<head>
+    <link rel="stylesheet" href="/css/user/myPage.css">
+    <script type="text/javascript" src="/js/common.js"></script>
+</head>
+<body>
+<div th:replace="user/fragments/bodyHeader :: bodyHeader"></div>
+<div class="container">
+    <div style="margin-top: 30px; font-weight: bold">
+        <i class="fa-solid fa-utensils" style="color: #25a520; margin-right: 7px"></i><span th:text="${name}"></span>
+    </div>
+    <section class="content-wrap">
+        <article class="card">
+            <div class="amount-subscribe" style="padding-bottom: 10px;">총 구독일</div>
+            <div class="amount-subscribe" th:text="${totalCnt} + '일'"></div>
+        </article>
+        <article class="card">
+            <div style="display: inline-flex;">
+                <div style="width: 170px">
+                    <div class="title">다음 배송일</div>
+                    <div th:text="${nextDate}"></div>
+                </div>
+                <div class="line"></div>
+                <div style="width: 170px">
+                    <div class="title">다음 배송수량</div>
+                    <div th:text="${nextDateCnt}+'개'"></div>
+                </div>
+            </div>
+        </article>
+        <article class="card">
+            <div class="title">쿠폰</div>
+            <div>0개</div>
+        </article>
+    </section>
+    <section>
+        <ul>
+            <li><a href="/mypage/mysubscription">나의 구독 내역</a></li>
+            <li><a href="/mypage/history/order">결제내역</a></li>
+            <li><a href="/mypage/history/cancel">취소내역</a></li>
+        </ul>
+    </section>
+    <section>
+        <ul>
+            <li><a href="/mypage/member">내 정보 관리</a></li>
+            <li><a href="/mypage/address">배송지 관리</a></li>
+        </ul>
+    </section>
+    <section>
+        <ul>
+            <li><a href="/logout">로그아웃</a></li>
+        </ul>
+    </section>
+</div>
+<!--<div th:replace="user/fragments/footer :: footer"></div>-->
+</body>
+</html>

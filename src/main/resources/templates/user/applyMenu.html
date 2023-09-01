@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="user/fragments/header :: header"></head>
+<head>
+    <link rel="stylesheet" href="/css/user/applyMenu.css">
+    <script type="text/javascript" src="/js/user/applyMenu.js"></script>
+    <script type="text/javascript" src="/js/common.js"></script>
+</head>
+<body>
+<div>
+    <div th:replace="user/fragments/bodyHeader :: bodyHeader"></div>
+    <div class="container">
+        <div class="content-wrap">
+            <div class="content-item" style="width: 500px">
+                <table class="calendar">
+                    <thead>
+                    <tr class="yearMonth">
+                        <td></td>
+                        <td th:if="${nextMonth}"  class="off" onClick="moveMonth('prev');">&#60;</td>
+                        <td th:unless="${nextMonth}" class="off">&#60;</td>
+<!--                        <td onClick="moveMonth('prev');" >&#60;</td>-->
+                        <td colspan="3" class="title">
+                            <span id="calYear"></span>년
+                            <span id="calMonth"></span>월
+                        </td>
+                        <td th:if="${nextMonth}" onClick="moveMonth('next');">&#62;</td>
+                        <td th:unless="${nextMonth}" class="off">&#62;</td>
+<!--                        <td onClick="moveMonth('next');">&#62;</td>-->
+                        <td></td>
+                    </tr>
+                    <tr style="height: 20px"></tr>
+                    <tr>
+                        <td class="">일</td>
+                        <td>월</td>
+                        <td>화</td>
+                        <td>수</td>
+                        <td>목</td>
+                        <td>금</td>
+                        <td class="">토</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+                <form action="/applyMenu/pay" method="post" onsubmit="attachData()">
+                    <input type="hidden" id="applyList" name="applyList">
+                    <button class="apply" type="submit">0일 | 0원 구독</button>
+                </form>
+            </div>
+            <div class="content-item line"></div>
+            <div class="content-item detailMenu">
+                <article>
+                    <p class="clickedDate">3월 10일</p>
+                    <div class="menuImgAndName-wrap">
+                        <div class="menuImgAndName">
+                            <div class="food-detail">
+                                <img class="foodImg" src="" alt="">
+                                <div class="foodName"><span>불닭&에그마요</span></div>
+                            </div>
+                            <div class="food-detail">
+                                <img class="foodImg" src="" alt="">
+                                <div class="foodName"><span>김치</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="addBar">
+                        <div class="cntControl">
+                            <button class="subtract">-</button>
+                            <span class="cnt">0</span>
+                            <button class="add on">+</button>
+                        </div>
+                        <div class="price-wrap">
+                            <span class="price">0</span>원
+                        </div>
+                    </div>
+                    <input type="hidden" id="menuId">
+                </article>
+            </div>
+        </div>
+    </div>
+    <div th:replace="user/fragments/footer :: footer"></div>
+    <div th:if="${message} != null" class="modal" tabindex="-1" style="display: block">
+        <div class="modal-dialog modal-sm modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div th:if="${message}=='payError'">결제 중 오류가 발생하였습니다.<br> 관리자에게 문의바랍니다.</div>
+                </div>
+                <div class="modal-bottom">
+                    <div class="btn"><button type="button" class="confirm" onclick="modalClose()">확인</button></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+<script th:inline="javascript">
+    let menuList = [[${menuList}]];
+
+    function modalClose() {
+        $(".modal").remove();
+    }
+</script>

@@ -1,0 +1,69 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style>
+        table {
+            width: 100%;
+            border: 1px solid black;
+        }
+        th, td {
+            border: 1px solid black;
+        }
+    </style>
+
+</head>
+<body>
+<div>
+    <div>
+        <form th:action="@{/admin/notice}"} th:object="${form}" method="post">
+            <div>
+                제목 : <input type="text" th:field="*{title}">
+            </div>
+            <div>
+                내용 :
+            </div>
+            <div>
+                <textarea rows="10" cols="100" th:field="*{content}"></textarea>
+            </div>
+            <div>
+                <button>등록</button>
+            </div>
+        </form>
+    </div>
+    <div>
+        <table style="border: 1px solid black">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>제목</th>
+                    <th>내용</th>
+                    <th>작성자ID</th>
+                    <th>작성자</th>
+                    <th>작성일</th>
+                    <th>수정자</th>
+                    <th>수정자ID</th>
+                    <th>수정일</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="notice:${notices}">
+                    <td th:text="${notice.noticeId}"></td>
+                    <td th:text="${notice.title}"></td>
+                    <td>
+                        <div th:utext="${#strings.replace(notice.brContent, '<br/>','&lt;br /&gt;')}"></div>
+<!--                        <textarea th:text="${notice.original_content}"></textarea>-->
+                    </td>
+                    <td th:text="${notice.createdBy}"></td>
+                    <td th:text="${notice.createdByName}"></td>
+                    <td th:text="${notice.createdDate}"></td>
+                    <td th:text="${notice.modifiedBy}"></td>
+                    <td th:text="${notice.modifiedByName}"></td>
+                    <td th:text="${notice.modifiedDate}"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>

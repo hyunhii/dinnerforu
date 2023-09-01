@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="user/fragments/header :: header"></head>
+<head>
+    <link rel="stylesheet" href="/css/user/common_mypage.css">
+    <link rel="stylesheet" href="/css/user/cacelHIstory.css">
+    <script type="text/javascript" src="/js/common.js"></script>
+</head>
+<body>
+<div>
+    <div th:replace="user/fragments/bodyHeader :: bodyHeader"></div>
+    <div class="container">
+        <div class="title-wrap flex-space-between">
+            <div class="arrow move-arrow move-arrow-margin" onclick="location.href='/mypage'"><</div>
+            <div class="title">취소 내역</div>
+            <div class="arrow"></div>
+        </div>
+        <div th:if="${#lists.size(list) == 0}" class="no-data">
+            취소 내역이 없습니다.
+        </div>
+        <div class="padding">
+            <div class="block-wrap" th:each="item:${list}">
+                <div class="middle-title" th:text="${item.orderDate} + ' ('+${item.dayOfWeek} +')'"></div>
+                <div class="green-box" th:onclick="'location.href=\'/mypage/cancel/detail/' + ${item.orderId} + '\''">
+                    <div class="flex-space-between">
+                        <div class="small-title">취소 수량</div>
+                        <div class="small-content" th:text="${item.amountCnt} +'개'"></div>
+                    </div>
+                    <div class="flex-space-between">
+                        <div class="small-title">환불 금액</div>
+                        <div class="small-content" th:text="${item.amountPriceWithComma} +'원'"></div>
+                    </div>
+                </div>
+                <div class="gray-line"></div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

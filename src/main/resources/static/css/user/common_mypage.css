@@ -1,0 +1,28 @@
+.title-wrap {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.title {
+    font-weight: bold;
+    text-align: center;
+    font-size: 18px;
+}
+
+.arrow {
+    width: 13px;
+}
+
+.move-arrow{
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.move-arrow-margin{
+    margin-left: 8px;
+}
+
+.flex-space-between{
+    display: flex;
+    justify-content: space-between;
+}

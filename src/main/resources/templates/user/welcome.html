@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="user/fragments/header :: header"></head>
+<head>
+    <link rel="stylesheet" href="/css/user/welcome.css">
+    <script type="text/javascript" src="/js/common.js"></script>
+</head>
+<body>
+<div th:replace="user/fragments/bodyHeader :: bodyHeader"></div>
+<div class="container">
+    <div class="title">회원가입이 완료되었습니다.</div>
+    <div class="display-flex-center">
+        <img src="/images/main/welcome.png" alt="">
+    </div>
+    <div class="display-flex-center">
+        <button onclick="location.href='/login'">로그인</button>
+        <button onclick="location.href='/'">홈으로</button>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <p>상품 목록</p>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>이름</th>
+                    <th>타입</th>
+                    <th>이미지</th>
+                    <th>사용여부</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="food:${foods}">
+                    <td th:text="${food.foodId}"></td>
+                    <td th:text="${food.foodName}"></td>
+                    <td th:text="${food.foodType.getName()}"></td>
+                    <td th:text="${food.foodImg}"></td>
+                    <td th:text="${food.useYN}"></td>
+                    <td>
+                        <a th:href="'javascript:update('+${food.foodId}+')'">수정</a>
+                    </td>
+                    <td>
+                        <a th:href="'javascript:deleteFood('+${food.foodId}+')'">삭제</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div th:with="start=${(foods.number/maxPage) * maxPage + 1},
+                  end=(${(foods.totalPages == 0) ? 1 : (start + (maxPage - 1) < foods.totalPages ? start + (maxPage - 1) : foods.totalPages)})">
+            <ul style="list-style: none;">
+                <li th:if="${start > 1}" style="display: inline-block; padding-left: 20px">
+                    <a th:href="@{/admin/food(page=${start - maxPage})}" th:text="'<'"></a>
+                </li>
+                <li th:each="page: ${#numbers.sequence(start, end)}" style="display: inline-block; padding-left: 20px">
+                    <a th:href="@{/admin/food(page = ${page})}" th:text="${page}"></a></li>
+                </li>
+                <li th:if="${end < foods.totalPages}" style="display: inline-block; padding-left: 20px">
+                    <a th:href="@{/admin/food(page=${start + maxPage})}" th:text="'>'"></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <p>상품 등록하기</p>
+
+    <form th:action="@{/admin/food/itemUpload}" th:object="${form}" method="post" enctype="multipart/form-data">
+        <table>
+            <tr>
+                <td>이름</td>
+                <td><input type="text" th:field="*{foodName}"></td>
+            </tr>
+            <tr>
+                <td>타입</td>
+                <td>
+                    <select th:field="*{type}">
+                        <option th:each="op : ${T(com.hyunhii.dinnerForU.entity.FoodType).values()}"
+                                th:value="${op}"
+                                th:text="${op.getName()}">
+                        </option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>사진</td>
+                <td><input type="file" name="file"></td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="등록"></td>
+            </tr>
+        </table>
+    </form>
+
+
+</body>
+</html>
+
+<script>
+    function update(id) {
+        var form = document.createElement("form");
+        // form.setAttribute("method", "get");
+        form.setAttribute("action", "/admin/food/" + id + "/update");
+        document.body.appendChild(form);
+        form.submit();
+    }
+
+    function deleteFood(id) {
+        var form = document.createElement("form");
+        form.setAttribute("method", "POST");
+        form.setAttribute("action", "/admin/food/" + id + "/delete");
+        document.body.appendChild(form);
+        form.submit();
+    }
+</script>

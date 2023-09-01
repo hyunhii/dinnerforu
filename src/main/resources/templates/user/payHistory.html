@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="user/fragments/header :: header"></head>
+<head>
+    <link rel="stylesheet" href="/css/user/common_mypage.css">
+    <link rel="stylesheet" href="/css/user/payHistory.css">
+    <script type="text/javascript" src="/js/common.js"></script>
+    <script type="text/javascript" src="/js/user/payHistory.js"></script>
+</head>
+<body>
+<div>
+    <div th:replace="user/fragments/bodyHeader :: bodyHeader"></div>
+    <div class="container">
+        <div class="title-wrap flex-space-between">
+            <div class="arrow move-arrow" onclick="location.href='/mypage'"><</div>
+            <div class="title">나의 결제내역</div>
+            <div class="arrow"></div>
+        </div>
+        <div class="none-content">
+            결제 내역이 없습니다.
+        </div>
+        <div class="content-item">
+            <div class="gray-line">
+                <div>결제일 : 2023-04-10 (화)</div>
+                <div><a href="/mypage/cancel"><div class="cancel-btn"><div class="dot"></div>취소</div></a></div>
+            </div>
+            <div class="subscription-menu-detail-wrap">
+                <div class="subscription-menu-detail">
+                    <div style="font-weight: bold">구독일 : 4월14일 (금)</div>
+                    <div class="flex-space-between">
+                        <div>구매수량</div>
+                        <div>1개</div>
+                    </div>
+                    <div class="flex-space-between">
+                        <div>메뉴</div>
+                        <div>
+                            <span>제육볶음</span> / <span>김치</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="subscription-menu-detail">
+                    <div>
+                        <div style="font-weight: bold">구독일 : 4월14일 (금)</div>
+                    </div>
+                    <div class="flex-space-between">
+                        <div>구매수량</div>
+                        <div>1개</div>
+                    </div>
+                    <div class="flex-space-between">
+                        <div>메뉴</div>
+                        <div><span>제육볶음</span> / <span>김치</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-item">
+            <div class="gray-line">
+                <div>결제일 : 2023-04-10 (화)</div>
+                <div><a href="/mypage/cancel"><div class="cancel-btn"><div class="dot"></div>취소</div></a></div>
+            </div>
+            <div class="subscription-menu-detail-wrap">
+                <div class="subscription-menu-detail">
+                    <div>
+                        <div style="font-weight: bold">구독일 : 4월14일 (금)</div>
+                    </div>
+                    <div class="flex-space-between">
+                        <div>구매수량</div>
+                        <div>1개</div>
+                    </div>
+                    <div class="flex-space-between">
+                        <div>메뉴</div>
+                        <div><span>제육볶음</span> / <span>김치</span></div>
+                    </div>
+                </div>
+                <div class="subscription-menu-detail">
+                    <div>
+                        <div style="font-weight: bold">구독일 : 4월14일 (금)</div>
+                    </div>
+                    <div class="flex-space-between">
+                        <div>구매수량</div>
+                        <div>1개</div>
+                    </div>
+                    <div class="flex-space-between">
+                        <div>메뉴</div>
+                        <div><span>제육볶음</span> / <span>김치</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div th:if="${message} != null" class="modal" tabindex="-1" style="display: block">
+        <div class="modal-dialog modal-sm modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div th:if="${message}=='success'">환불 요청이 완료되었습니다.</div>
+                    <div th:unless="${message}=='success'">환불 요청이 불가합니다.<br> 관리자에게 문의바랍니다.</div>
+                </div>
+                <div class="modal-bottom">
+                    <div class="btn"><button type="button" class="confirm" onclick="modalClose()">확인</button></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+<script th:inline="javascript">
+    setList([[${list}]])
+
+
+    function modalClose() {
+        $(".modal").remove();
+    }
+</script>

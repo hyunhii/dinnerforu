@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="user/fragments/header :: header"></head>
+<head>
+    <link rel="stylesheet" href="/css/user/common_mypage.css">
+    <link rel="stylesheet" href="/css/user/subscription.css">
+    <script type="text/javascript" src="/js/common.js"></script>
+</head>
+<body>
+<div>
+    <div th:replace="user/fragments/bodyHeader :: bodyHeader"></div>
+    <div class="container" style="margin-bottom: 100px">
+        <div class="title-wrap flex-space-between">
+            <div class="arrow move-arrow move-arrow-margin" onclick="location.href='/mypage'"><</div>
+            <div class="title">나의 구독내역</div>
+            <div class="arrow"></div>
+        </div>
+        <div class="gray-line"></div>
+        <div th:each="item:${list}" class="gray-line item-wrap">
+            <div class="middle-title" th:text="${item.subscribeDate} + ' (' + ${item.dayOfWeek} + ')'"></div>
+            <div class="address" th:text="${item.getAddress1()}"></div>
+            <div class="card-wrap">
+                <div class="content">
+<!--                    <img th:src="'/images/food/' + ${item.getImgSrc1()}" alt="">-->
+<!--                    <img th:src="'/images/food/' + ${item.getImgSrc2()}" alt="">-->
+                    <img th:src="'https://storage.googleapis.com/food-image-bucket-1/' + ${item.getImgSrc1()}" alt="">
+                    <img th:src="'https://storage.googleapis.com/food-image-bucket-1/' + ${item.getImgSrc2()}" alt="">
+                    <div class="content">
+                        <div>
+                            <div th:text="'수량 : ' + ${item.getCnt()} + '개'"></div>
+                            <div th:text="${item.getFoodName()}"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
